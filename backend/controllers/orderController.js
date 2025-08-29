@@ -5,10 +5,10 @@ import Stripe from "stripe";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 const placeOrder = async (req, res) => {
-  const frontend_url = "http://localhost:5174"; // ✅ no trailing slash
+  const frontend_url = import.meta.env.VITE_FRONTEND_URL;
 
   try {
-    console.log("🔍 userId from middleware:", req.userId); // ✅ DEBUG
+    console.log("🔍 userId from middleware:", req.userId); //  debugging
 
     const { address, items, amount } = req.body;
     const userId = req.userId;
