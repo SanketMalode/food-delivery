@@ -5,7 +5,7 @@ import Stripe from "stripe";
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 const placeOrder = async (req, res) => {
-  const frontend_url = import.meta.env.VITE_FRONTEND_URL;
+  const frontend_url = process.env.VITE_FRONTEND_URL;
 
   try {
     console.log("🔍 userId from middleware:", req.userId); //  debugging
